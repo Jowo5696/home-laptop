@@ -1,0 +1,56 @@
+%vim "+y -> vim "+p 
+%latex file.tex 
+%pdflatex file.tex
+%firefox: file:///home/jonas/file.pdf
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[paperwidth=1920px, paperheight=1080px]{geometry}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{index}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{pdfpages}
+\usepackage{tabulary}
+\usepackage{tikz}
+\usepackage{longtable}
+\usepackage{amsmath,amsfonts,amssymb}
+%\usepackage{fancyhdr}
+\usepackage{babel}
+\usepackage{german}
+\usepackage[ngerman=ngerman-x-latest]{hyphsubst}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{tikz}
+\usepackage[locale=DE]{siunitx}
+\usepackage{caption}
+\usepackage{makecell}
+\usepackage[official]{eurosym}
+
+\newcommand{\RN}[1]{\uppercase\expandafter{\romannumeral#1}}
+
+\renewcommand{\refname}{Source}
+
+%\pagestyle{fancy}
+
+\renewcommand{\sfdefault}{phv}
+
+%\bibliographystyle{alphadin}
+
+%\sloppy
+
+\pagenumbering{gobble}
+
+%\lhead{}
+%\chead{}
+%\rhead{}
+
+%\item[\large$\cdot$]
+
+\begin{document}
+
+%\tableofcontents\newpage
+%section{} and subsection{}
+\Huge\textbf{\textit{\center{\grqq I must not fear.\\Fear is the mind-killer.\\Fear is the little-death that brings total obliteration.\\I will face my fear.\\I will permit it to pass over me and through me.\\And when it has gone past me I will turn to see the fear's path.\\Where the fear has gone there will be nothing.\\Only I will remain.\grqq\\}}}\hfill\textsc{- Bene Gesserit Litany}
+\Huge\textbf{\textit{\center{\grqq Yes.\\They'll call me . . . Muad'Dib,\\'The One Who Points the Way.'\\Yes . . .\\that's what they'll call me.\grqq\\}}}\hfill\textsc{- Muad'Dib}
+
+\end{document}

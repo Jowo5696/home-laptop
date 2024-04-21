@@ -1,0 +1,220 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference
+
+# Variables
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $term kitty
+#set $menu dmenu_run -b -p 'start' -fn 'source code pro italic' -nb '#854442' -sb '#3c2f2f'
+set $menu wofi -S run -s /home/jonas/.config/wofi/style.css -c /home/jonas/.config/wofi/config -C /home/jonas/.config/wofi/color -o eDP-1 -n
+
+
+#xargs swaymsg exec --
+
+# swaymsg -t get_outputs
+#output eDP-1 bg /home/jonas/pctrs/dune_1.jpg fit 
+#output eDP-1 bg #8f8894 solid_color
+#output eDP-1 bg #f6d88d solid_color
+#output eDP-1 bg #f7e3b0 solid_color
+#output eDP-1 bg #458000 solid_color
+#output eDP-1 bg #450080 solid_color
+#output eDP-1 bg /home/jonas/.config/sway/bckgrnd/Energy-1.png fit
+output eDP-1 bg /home/jonas/.config/sway/bckgrnd/eap-1.png fit
+#output eDP-1 bg #92819e solid_color
+#output eDP-1 bg #6e6375 solid_color
+#output eDP-1 bg pacman -Qte
+
+#exec swayidle -w \
+#        timeout 300 'swaylock -C ~/.swaylock/config' \
+#        timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#        before-sleep 'swaylock -C ~/.swaylock/config'
+
+# Rotation
+exec rot8
+
+# swaymsg -t get_inputs
+input "type:keyboard" {
+        xkb_layout de
+	xkb_variant nodeadkeys
+	repeat_delay 200
+	repeat_rate 30
+}
+
+input "type:touchpad" {
+	tap enabled
+	natural_scroll enabled
+}
+
+# Key bindings
+bindsym XF86PowerOff exec swaylock --image ~/pictures/jpluminet.jpg -e
+
+bindsym $mod+q exec firefox
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer set Master 1dB+
+bindsym XF86AudioLowerVolume exec amixer set Master 1dB-
+
+bindsym XF86MonBrightnessUp exec ~/.config/sway/brightnessup.sh
+bindsym XF86MonBrightnessDown exec ~/.config/sway/brightnessdown.sh
+
+#bindsym $mod+c exec eww close example
+
+bindsym $mod+Return exec $term
+bindsym $mod+d exec $menu
+
+bindsym $mod+c kill
+
+floating_modifier $mod normal
+
+bindsym $mod+Shift+c reload
+
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# Workspaces:
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Layout stuff:
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+Space floating toggle
+
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+comma move scratchpad
+bindsym $mod+comma scratchpad show
+
+# Resizing containers:
+bindsym $mod+r mode "resize"
+mode "resize" {
+	bindsym $left resize shrink width 222px
+	bindsym $down resize grow height 222px
+	bindsym $up resize shrink height 222px
+	bindsym $right resize grow width 222px
+	bindsym Left resize shrink width 10px
+	bindsym Down resize grow height 10px
+	bindsym Up resize shrink height 10px
+	bindsym Right resize grow width 10px
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+#set {
+# brown, red, light, darkbrown, cream
+#	$1 #4b3832
+#	$2 #854442
+#	$3 #fff4e6
+#	$4 #3c2f2f
+#	$5 #be9b7b
+#}
+
+#set {
+# turquoise, green, flamingo, pink, light
+#	$1 #40caee
+#       $2 #23e4e7
+#	$3 #ff7abc
+#	$4 #ffb5d8
+#	$5 #ffe8f4
+#}
+
+set {
+# brown, pink, light, teal, light teal
+#	$1 #b88c8c
+#       $2 #ddadad
+#	$3 #ffffff
+# 	$4 #9fb9bf
+#       $5 #aec8ce
+}
+
+set {
+# dark (bg), darker (purple), light (fg), cream, green
+#        $1 #00475c
+#        $2 #450080
+#        $3 #ededde
+#        $4 #e5e1d2
+#        $5 #458000
+}
+
+set {
+# gruvbox: 1bg, 2red, 3fg, 4gray, 5orange, 6blue
+        $1 #282828
+        $2 #8d4242
+        $3 #ebdbb2
+        $4 #a89984
+        $5 #a75a1d
+        $6 #458588
+}
+
+gaps inner 15
+default_border pixel 0
+default_floating_border pixel 0
+# border background text indicator child_border
+client.focused $2 $2 $3 $3 $3
+client.unfocused $2 $2 $3 $2 $2
+client.focused_inactive $2 $2 $3 $2 $2
+
+# Status Bar:
+bar {
+	position top
+	workspace_buttons yes
+	status_command while ./.config/sway/bar_config.sh; do sleep 1; done
+	font Source Code Pro italic
+	colors {
+		background $3
+		statusline $1
+                focused_workspace $6 $6 $3
+                inactive_workspace $5 $5 $3
+	}
+        bindcode 272 exec ~/.config/sway/brightness.sh
+}
+
+include /etc/sway/config.d/*
+#exec gammastep -c ~/.config/sway/config.ini
+exec gammastep

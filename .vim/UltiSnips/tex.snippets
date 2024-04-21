@@ -1,0 +1,992 @@
+#snippet trigger "description" option
+#body
+#snippetend
+
+global !p
+def math():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '1'
+endglobal
+
+global !p
+def nmath():
+	return vim.eval('vimtex#syntax#in_mathzone()') == '0'
+endglobal
+
+
+### environments ###
+
+
+snippet env "environment" w
+\begin{$1}
+	$2
+\end{$1}$0
+endsnippet
+
+context "nmath()"
+snippet mm "mathenv" wA 
+\$$1\$ $0
+endsnippet
+
+#context "nmath()"
+#snippet MM "mathenv centered" wA 
+#\[ 
+#$1
+#.\] $0
+#endsnippet
+
+snippet hypr "hyperref" iA
+\hyperref[$1]{$2} $0
+endsnippet
+
+snippet sc "textsc" i
+\textsc{$1}$0
+endsnippet
+
+snippet jj "skip" iA
+j$0
+endsnippet
+
+snippet kk "skip" iA
+k$0
+endsnippet
+
+context "math()"
+snippet nn "nonumber" iA
+\nonumber $0
+endsnippet
+
+context "math()"
+snippet eq1 "inlineeqno" iA
+\inlineeqno\label{$1}$0
+endsnippet
+
+context "math()"
+snippet eqa "inlineeqno" iA
+\stepcounter{equation}\inlineeqnoa\label{$1}$0
+endsnippet
+
+context "math()"
+snippet eqb "inlineeqno" iA
+\inlineeqnob\label{$1}$0
+endsnippet
+
+context "math()"
+snippet eqc "inlineeqno" iA
+\inlineeqnoc\label{$1}$0
+endsnippet
+
+context "math()"
+snippet eqwo1 "inlineeqno" iA
+\stepcounter{equation}\tag{\inlineeqnowo}\label{$1}$0
+endsnippet
+
+context "math()"
+snippet eqwoa "inlineeqno" iA
+\stepcounter{equation}\tag{\inlineeqnowoa}\label{$1}$0
+endsnippet
+
+context "math()"
+snippet eqwob "inlineeqno" iA
+\tag{\inlineeqnowob}\label{$1}$0
+endsnippet
+
+context "math()"
+snippet eqwoc "inlineeqno" iA
+\tag{\inlineeqnowoc}\label{$1}$0
+endsnippet
+
+context "nmath()"
+snippet MM "mathenv centered" wA 
+\begin{align} 
+$1
+$2\end{align} 
+$0
+endsnippet
+
+context "math()"
+snippet nm "norm" iA
+||$1||$0
+endsnippet
+
+context "math()"
+snippet si "num and unit" iA
+\SI{$1}{$2}$0
+endsnippet
+
+snippet sec "section" 
+\newpage
+\section{$1}
+$0
+endsnippet
+
+snippet ssec "subsection" A
+\subsection{$1}
+$0
+endsnippet
+
+snippet ttl "title" A
+\\\\\hfill\\\\\textbf{$1}\\\ $0
+endsnippet
+
+context "math()"
+snippet te "text" iA
+\text{$1}$0
+endsnippet
+
+snippet enum "enumerate" 
+\begin{enumerate}[label=${1:\arabic*, \alph*, \roman*, msc}]
+$2
+\end{enumerate}$0
+endsnippet
+
+snippet itm "itemize" wA
+\item$0
+endsnippet
+
+snippet bf "bold" A
+\textbf{$1} $0
+endsnippet
+
+snippet it "italic" 
+\textit{$1} $0
+endsnippet
+
+context "math()"
+snippet fr "fraktur" iA
+\mathfrak{$1}$0
+endsnippet
+
+context "math()"
+snippet cl "calligraphy" iA
+\mathcal{$1}$0
+endsnippet
+
+context "math()"
+snippet bm "math bold font" iA
+\boldsymbol{$1} $0
+endsnippet
+
+context "math()"
+snippet tg "tag, label, eqref" iA
+\tag{$1}\label{$2}$0 
+endsnippet
+
+snippet lbl "label" iA
+\label{$1}$0
+endsnippet
+
+context "math()"
+snippet ii "complex" iA
+\text{i}$0
+endsnippet
+
+context "math()"
+snippet ee "exponential function" iA
+\text{e}$0
+endsnippet
+
+context "math()"
+snippet px "exponential function" iA
+\text{exp}$0
+endsnippet
+
+
+### tikz ###
+
+
+
+snippet 'est(\d)' "test" riA
+`!p
+x=match.group(1)
+snip.rv=x
+`
+endsnippet
+
+
+snippet 'tikzrectangle(\d)(\d)(\d)(\d)' "rectangle" riA
+\begin{tikzpicture}
+\draw[$1](`!p snip.rv=match.group(1)`,`!p snip.rv=match.group(2)`) rectangle (`!p snip.rv=match.group(3)`,`!p snip.rv=match.group(4)`); $0
+\end{tikzpicture}
+endsnippet
+
+snippet 'tikzcircle(\d)(\d)(\d)' "circle" riA
+\begin{tikzpicture}
+\draw[$1](`!p snip.rv=match.group(1)`,`!p snip.rv=match.group(2)`) circle (`!p snip.rv=match.group(3)`cm); $0
+\end{tikzpicture}
+endsnippet
+
+snippet 'tikzellipse(\d)(\d)(\d)(\d)' "ellipse" riA
+\begin{tikzpicture}
+\draw[$1](`!p snip.rv=match.group(1)`,`!p snip.rv=match.group(2)`) ellipse (`!p snip.rv=match.group(3)`cm and `!p snip.rv=match.group(4)`cm); $0
+\end{tikzpicture}
+endsnippet
+
+snippet 'tikzarc(\d)(\d)(\d)(\d)(\d)' "arc" riA
+\begin{tikzpicture}
+\draw[$1](`!p snip.rv=match.group(1)`,`!p snip.rv=match.group(2)`) arc (`!p snip.rv=match.group(3)`:`!p snip.rv=match.group(4)`:`!p snip.rv=match.group(5)`cm); $0
+\end{tikzpicture}
+endsnippet
+
+snippet 'tikzgrid(\d)(\d)(\d)(\d)' "grid" riA
+\begin{tikzpicture}
+\draw[step=$1cm](`!p snip.rv=match.group(1)`,`!p snip.rv=match.group(2)`) grid (`!p snip.rv=match.group(3)`,`!p snip.rv=match.group(4)`); $0
+\end{tikzpicture}
+endsnippet
+
+snippet 'tikzcoordsys(\d)(\d)(\d)(\d)(\d)(\d)(\d)(\d)' "coordinate system" riA
+\begin{tikzpicture}
+\draw[->](`!p snip.rv=match.group(1)`,`!p snip.rv=match.group(2)`) -- (`!p snip.rv=match.group(3)`,`!p snip.rv=match.group(4)`) node[anchor=north west] {$1};
+\draw[->](`!p snip.rv=match.group(5)`,`!p snip.rv=match.group(6)`) -- (`!p snip.rv=match.group(7)`,`!p snip.rv=match.group(8)`) node[anchor=south east] {$2}; $0
+\end{tikzpicture}
+endsnippet
+
+snippet 'tikzcoordnsys(\d)(\d)(\d)(\d)(\d)(\d)(\d)(\d)' "coordinate system numbers" riA
+\begin{tikzpicture}
+\draw[->](`!p snip.rv=match.group(1)`,`!p snip.rv=match.group(2)`) -- (`!p snip.rv=match.group(3)`,`!p snip.rv=match.group(4)`) node[anchor=north west] {$1};
+\foreach \x in {`!p 
+xaxis=[]
+x=abs(int(match.group(1)))+abs(int(match.group(3)))
+for a in range(x):
+	xaxis.append (a)
+nxaxis=(','.join(str(e) for e in xaxis))
+snip.rv=(nxaxis)
+`}
+\draw (\x cm,1pt) -- (\x cm, -1pt) node[anchor=north] {$\x$};
+\draw[->](`!p snip.rv=match.group(5)`,`!p snip.rv=match.group(6)`) -- (`!p snip.rv=match.group(7)`,`!p snip.rv=match.group(8)`) node[anchor=south east] {$2};
+\foreach \y in {`!p
+yaxis=[]
+y=abs(int(match.group(6)))+abs(int(match.group(8)))
+for b in range(y):
+	yaxis.append (b)
+nyaxis=(','.join(str(e) for e in yaxis))
+snip.rv=(nyaxis)
+`}
+\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+\end{tikzpicture} $0
+endsnippet
+
+
+
+### math ###
+
+
+context "math()"
+snippet nb "nable" iA
+\nabla $0
+endsnippet
+
+
+
+context "math()"
+snippet lg "left angle" iA
+\left\langle $0
+endsnippet
+
+context "math()"
+snippet rg "left angle" iA
+\right\rangle $0
+endsnippet
+
+context "math()"
+snippet ub "underbrace" iA
+\underbrace{$1}_{$2}$0
+endsnippet
+
+context "math()"
+snippet !! "soll gelten" iA
+\stackrel{!}{$1}$0
+endsnippet
+
+snippet zz "zu zeigen" A
+\zz $0
+endsnippet
+
+context "math()"
+snippet cr "circ" iA
+\circ $0
+endsnippet
+
+context "math()"
+snippet ol "overline" iA
+\overline{$1}$0
+endsnippet
+
+context "math()"
+snippet tf "therefore" iA
+\therefore $0
+endsnippet
+
+context "math()"
+snippet bc "because" iA
+\because $0
+endsnippet
+
+snippet KVR "K-Vektorraum" iA
+$\mathbb{K}$-VR
+endsnippet
+
+context "math()"
+snippet hd "hdots" iA
+\hdots $0
+endsnippet
+
+context "math()"
+snippet vd "vdots" iA
+\vdots $0
+endsnippet
+
+context "math()"
+snippet dot "dot" iA
+\dot{$1}$0
+endsnippet
+
+context "math()"
+snippet doot "ddot" iA
+\ddot{$1}$0
+endsnippet
+
+context "math()"
+snippet dooot "dddot" iA
+\dddot{$1}$0
+endsnippet
+
+context "math()"
+snippet lm "limes" iA
+\lim_{$1}$0
+endsnippet
+
+context "math()"
+snippet ls "limes superior" iA
+\lim_{$1}\text{sup}$0
+endsnippet
+
+context "math()"
+snippet li "limes inferior" iA
+\lim_{$1}\text{inf}$0
+endsnippet
+
+context "math()"
+snippet ovlr "overleftrightarrow" iA
+\overleftrightarrow{$1}$0
+endsnippet
+
+context "math()"
+snippet sn "sin" iA
+\sin $0
+endsnippet
+
+context "math()"
+snippet cs "cos" iA
+\cos $0
+endsnippet
+
+context "math()"
+snippet tn "tan" iA
+\tan $0
+endsnippet
+
+context "math()"
+snippet sh "sinh" iA
+\sinh $0
+endsnippet
+
+#context "math()"
+#snippet ch "sinh" iA
+#\cosh $0
+#endsnippet
+
+context "math()"
+snippet th "sinh" iA
+\tanh $0
+endsnippet
+
+snippet bsl "backslash" iA
+\backslash $0
+endsnippet
+
+context "math()"
+snippet mt "mapsto" iA
+\mapsto $0
+endsnippet
+
+context "math()"
+snippet cd "cdot" iA
+\cdot $0
+endsnippet
+
+context "math()"
+snippet aprx "approx" iA
+\approx $0
+endsnippet
+
+context "math()"
+snippet (( "left( \right)" iA
+\left($1\right)$0
+endsnippet
+
+context "math()"
+snippet [[ "left[ \right]" iA
+\left[$1\right]$0
+endsnippet
+
+context "math()"
+snippet {{ "left\{ \right\}" iA
+\left\\\{$1\right\\\}$0
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])(\d)' "sb simple" r
+`!p snip.rv=match.group(1)`_`!p snip.rv=match.group(2)`$0
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])_(\d\d)' "sb two" rA
+`!p snip.rv=match.group(1)`_{`!p snip.rv=match.group(2)`}$0
+endsnippet
+
+context "math()"
+snippet qq "qquad" iA
+\qquad $0
+endsnippet
+
+context "math()"
+snippet qt "quad text" iA
+\qq{\text{$1}} $0
+endsnippet
+
+context "math()"
+snippet ss "subscript" iA
+_{$1}$0
+endsnippet
+
+context "math()"
+snippet tt "superscript" iA
+^{$1}$0
+endsnippet
+
+context "math()"
+snippet sq "squared" iA
+^2
+endsnippet
+
+context "math()"
+snippet sr "sqrt" iA
+\,\sqrt[$1]{$2}$0
+endsnippet
+
+context "math()"
+snippet ff "frac" iA
+\tfrac{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet df "frac" iA
+\dfrac{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet dd "derivative" iA
+\diff[$1]{$2}{$3}$0
+endsnippet
+
+context "math()"
+snippet pp "derivative" iA
+\diffp[$1]{$2}{$3}$0
+endsnippet
+
+context "math()"
+snippet p* "derivative" iA
+\diffp*[$1]{$2}{$3}$0
+endsnippet
+
+context "math()"
+snippet d* "derivative" iA
+\diff*[$1]{$2}{$3}$0
+endsnippet
+
+#context "math()"
+#snippet dd "derivative" iA
+#\text{d}$0
+#endsnippet
+
+context "math()"
+snippet 2f "frac2" iA
+\dfrac{$1}{2}$0
+endsnippet
+
+context "math()"
+snippet 3f "frac3" iA
+\dfrac{$1}{3}$0
+endsnippet
+
+context "math()"
+snippet sm "sum" iA
+\sum_{$1}^{$2}$0
+endsnippet
+
+context "math()"
+snippet prod "product" iA
+\prod_{$1}^{$2}$0
+endsnippet
+
+context "math()"
+snippet nt "integral" iA
+\int_{$1}^{$2}$3\td $0
+endsnippet
+
+context "math()"
+snippet on "integral" iA
+\oint_{$1}^{$2}$3\td $0
+endsnippet
+
+context "math()"
+snippet bnm "binom" iA
+\binom{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet '([a-zA-Z]|{|}|(|)|[|])in' "in" riA
+`!p snip.rv=match.group(1)` \in $0
+endsnippet
+
+context "math()"
+snippet '([a-zA-Z]|{|}|(|)|[|])ni' "not in" riA
+`!p snip.rv=match.group(1)` \notin $0
+endsnippet
+
+context "math()"
+snippet mx31 "matrix" iA
+\left(
+	\begin{matrix}
+		$1\\\
+		$2\\\
+		$3
+	\end{matrix}
+\right)$0
+endsnippet
+
+context "math()"
+snippet mx34 "matrix" iA
+\left(
+	\begin{matrix}
+		$1&$2&$3&=$4\\\
+		$5&$6&$7&=$8\\\
+		$9&$10&$11&=$12
+	\end{matrix}
+\right)$0
+endsnippet
+
+context "math()"
+snippet neq "neq" iA
+\neq $0
+endsnippet
+
+context "math()"
+snippet leq "less than or eq" iA
+\leq $0
+endsnippet
+
+context "math()"
+snippet geq "greater than or eq" iA
+\geq $0
+endsnippet
+
+context "math()"
+snippet seq "subseteq" iA
+\subseteq $0
+endsnippet
+
+context "math()"
+snippet st "subset" iA
+\subset $0
+endsnippet
+
+context "math()"
+snippet nseq "nsubseteq" iA
+\nsubseteq $0
+endsnippet
+
+context "math()"
+snippet nss "nsubset" iA
+\nsubset $0
+endsnippet
+
+context "math()"
+snippet cap "cap" iA
+\cap $0
+endsnippet
+
+context "math()"
+snippet cup "cup" iA
+\cup $0
+endsnippet
+
+context "math()"
+snippet || "|+gaps" iA
+\,|\, $0
+endsnippet
+
+context "math()"
+snippet 'mbb([A-Z])' "mathbb" riA
+\mathbb{`!p snip.rv=match.group(1)`}$0
+endsnippet
+
+context "math()"
+snippet 'mds([0-9])' "mathds" riA
+\mathds{`!p snip.rv=match.group(1)`}$0
+endsnippet
+
+context "nmath()"
+snippet ' ([A-Za-z]) ' "math" riA
+ $`!p snip.rv=match.group(1)`$ $0
+endsnippet
+
+context "nmath()"
+snippet ' m([A-Za-z]) ' "mathbb" riA
+ $\mathbb{`!p snip.rv=match.group(1)`}$ $0
+endsnippet
+
+context "math()"
+snippet eqv "equivalent" iA
+\equiv $0
+endsnippet
+
+context "math()"
+snippet ex "exists" iA
+\exists $0
+endsnippet
+
+context "math()"
+snippet xe "nexists" iA
+\nexists $0
+endsnippet
+
+context "math()"
+snippet Ex "exists!" iA
+\exists! $0
+endsnippet
+
+context "math()"
+snippet fa "for all" iA
+\,\forall $0
+endsnippet
+
+context "math()"
+snippet neg "negation" iA
+\neg $0
+endsnippet
+
+context "math()"
+snippet or "logical or" iA
+\lor $0
+endsnippet
+
+context "math()"
+snippet and "logical and" iA
+\land $0
+endsnippet
+
+context "math()"
+snippet O+ "oplus" iA
+\oplus $0
+endsnippet
+
+context "math()"
+snippet O- "ominus" iA
+\ominus $0
+endsnippet
+
+context "math()"
+snippet Ot "otimes" iA
+\otimes $0
+endsnippet
+
+context "math()"
+snippet LRA "Leftrightarrow" iA
+\Leftrightarrow $0
+endsnippet
+
+context "math()"
+snippet ra "rightarrow" iA
+\rightarrow $0
+endsnippet
+
+context "math()"
+snippet la "leftarrow" iA
+\leftarrow $0
+endsnippet
+
+context "math()"
+snippet Ra "Rightarrow" iA
+\Rightarrow $0
+endsnippet
+
+context "math()"
+snippet La "Leftarrow" iA
+\Leftarrow $0
+endsnippet
+
+context "math()"
+snippet nf "infty" iA
+\infty
+endsnippet
+
+context "math()"
+snippet vv "vec" iA
+\vv{$1}$0
+endsnippet
+
+
+
+
+
+
+### formatting ###
+
+
+
+snippet box "box" 
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+
+snippet newdocument "creates template for new document" A
+%{{{ Formatierung
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{physics_notetaking}
+
+%%% dark red
+%\definecolor{bg}{RGB}{60,47,47}
+%\definecolor{fg}{RGB}{255,244,230}
+%%% space grey
+%\definecolor{bg}{RGB}{46,52,64}
+%\definecolor{fg}{RGB}{216,222,233}
+%%% purple
+%\definecolor{bg}{RGB}{69,0,128}
+%\definecolor{fg}{RGB}{237,237,222}
+%\pagecolor{bg}
+%\color{fg}
+
+\newcommand{\td}{\,\text{d}}
+\newcommand{\RN}[1]{\uppercase\expandafter{\romannumeral#1}}
+\newcommand{\zz}{\mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z} }}
+
+\newcommand\inlineeqno{\stepcounter{equation}\ {(\theequation)}}
+\newcommand\inlineeqnoa{(\theequation.\text{a})}
+\newcommand\inlineeqnob{(\theequation.\text{b})}
+\newcommand\inlineeqnoc{(\theequation.\text{c})}
+
+\newcommand\inlineeqnowo{\stepcounter{equation}\ {(\theequation)}}
+\newcommand\inlineeqnowoa{\theequation.\text{a}}
+\newcommand\inlineeqnowob{\theequation.\text{b}}
+\newcommand\inlineeqnowoc{\theequation.\text{c}}
+
+\renewcommand{\refname}{Source}
+\renewcommand{\sfdefault}{phv}
+%\renewcommand*\contentsname{Contents}
+
+\pagestyle{fancy}
+
+\sloppy
+
+\numberwithin{equation}{section}
+
+%}}}
+
+\begin{document}
+
+%{{{ Titelseite
+
+\title{}
+\author{}
+\maketitle
+\pagenumbering{gobble}
+
+%}}}
+
+\newpage
+
+%{{{ Inhaltsverzeichnis
+
+\fancyhead[L]{\thepage}
+\fancyfoot[C]{}
+\pagenumbering{arabic}
+
+\tableofcontents
+
+%}}}
+
+\newpage
+
+%{{{
+
+\fancyhead[R]{\leftmark\\\\\rightmark}
+
+$0
+
+%}}}
+
+\end{document}
+endsnippet
+
+context "math()"
+snippet alpha "alpha" iA
+\alpha $0
+endsnippet
+context "math()"
+snippet bt "beta" iA
+\beta $0
+endsnippet
+context "math()"
+snippet gamma "gamma" iA
+\gamma $0
+endsnippet
+context "math()"
+snippet delt "delta" iA
+\delta $0
+endsnippet
+#context "math()"
+#snippet epslon "epsilon" iA
+#\epsilon $0
+#endsnippet
+context "math()"
+snippet vepln "varepsilon" iA
+\varepsilon $0
+endsnippet
+context "math()"
+snippet zt "zeta" iA
+\zeta $0
+endsnippet
+context "math()"
+snippet et "eta" i
+\eta $0
+endsnippet
+context "math()"
+snippet ta "theta" iA
+\theta $0
+endsnippet
+context "math()"
+snippet vt "vartheta" iA
+\vartheta $0
+endsnippet
+context "math()"
+snippet iota "iota" iA
+\iota $0
+endsnippet
+context "math()"
+snippet kpa "kappa" iA
+\kappa $0
+endsnippet
+context "math()"
+snippet mbd "lambda" iA
+\lambda $0
+endsnippet
+context "math()"
+snippet mu "mu" iA
+\mu $0
+endsnippet
+context "math()"
+snippet nu "nu" iA
+\nu $0
+endsnippet
+context "math()"
+snippet xi "xi" i
+\xi $0
+endsnippet
+context "math()"
+snippet pi "pi" iA
+\pi $0
+endsnippet
+context "math()"
+snippet vip "varpi" iA
+\varpi $0
+endsnippet
+context "math()"
+snippet rho "rho" iA
+\rho $0
+endsnippet
+context "math()"
+snippet vrh "varrho" iA
+\varrho $0
+endsnippet
+context "math()"
+snippet sgma "sigma" iA
+\sigma $0
+endsnippet
+context "math()"
+snippet tu "tau" iA
+\tau $0
+endsnippet
+context "math()"
+snippet uplon "upsilon" iA
+\upsilon $0
+endsnippet
+context "math()"
+snippet phi "phi" iA
+\phi $0
+endsnippet
+context "math()"
+snippet vph "varphi" iA
+\varphi $0
+endsnippet
+context "math()"
+snippet ci "chi" iA
+\chi $0
+endsnippet
+context "math()"
+snippet ps "psi" iA
+\psi $0
+endsnippet
+context "math()"
+snippet omega "omega" iA
+\omega $0
+endsnippet
+
+context "math()"
+snippet Gamma "Gamma" iA
+\Gamma $0
+endsnippet
+context "math()"
+snippet Delt "Delta" iA
+\Delta $0
+endsnippet
+context "math()"
+snippet Tea "Theta" iA
+\Theta $0
+endsnippet
+context "math()"
+snippet Mbd "Lambda" iA
+\Lambda $0
+endsnippet
+context "math()"
+snippet Xi "Xi" i
+\Xi $0
+endsnippet
+context "math()"
+snippet Pi "Pi" iA
+\Pi $0
+endsnippet
+context "math()"
+snippet Sgma "Sigma" iA
+\Sigma $0
+endsnippet
+context "math()"
+snippet Upslon "Upsilon" iA
+\Upsilon $0
+endsnippet
+context "math()"
+snippet Phi "Phi" iA
+\Phi $0
+endsnippet
+context "math()"
+snippet Ps "Psi" iA
+\Psi $0
+endsnippet
+context "math()"
+snippet Omega "Omega" iA
+\Omega $0
+endsnippet

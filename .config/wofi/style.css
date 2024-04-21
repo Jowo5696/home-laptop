@@ -1,0 +1,35 @@
+window {
+	background-color: --wofi-color0;
+}
+
+#outer-box {
+	background-color: --wofi-color0;
+}
+
+#selected {
+	background-color: --wofi-color0;
+	color: --wofi-color0;
+}
+
+#scroll {
+	background-color: --wofi-color0;
+	color: --wofi-color1;
+}
+
+#inner-box {
+	background-color: --wofi-color0;
+}
+
+#text {
+	color: --wofi-color1;
+}
+
+#unselected {
+	background-color: --wofi-color0;
+	color: --wofi-color0;
+}
+
+#input {
+	background-color: --wofi-color1;
+	color: --wofi-color0;
+}

@@ -1,0 +1,8 @@
+set selection-clipboard clipboard
+map D set "first-page-column 1:1"
+map <C-d> set "first-page-column 1:2"
+
+set default-fg "#ededde"
+set default-bg "#282828"
+set statusbar-fg "#ededde"
+set statusbar-bg "#282828"
