@@ -15,6 +15,15 @@ endglobal
 
 ### environments ###
 
+context "math()"
+snippet hb "h bar" iA
+\hbar $0
+endsnippet
+
+context "math()"
+snippet hat "hat" iA
+\hat{$1}$0
+endsnippet
 
 snippet env "environment" w
 \begin{$1}
@@ -510,16 +519,6 @@ endsnippet
 #endsnippet
 
 context "math()"
-snippet 2f "frac2" iA
-\dfrac{$1}{2}$0
-endsnippet
-
-context "math()"
-snippet 3f "frac3" iA
-\dfrac{$1}{3}$0
-endsnippet
-
-context "math()"
 snippet sm "sum" iA
 \sum_{$1}^{$2}$0
 endsnippet
@@ -926,7 +925,7 @@ snippet uplon "upsilon" iA
 \upsilon $0
 endsnippet
 context "math()"
-snippet phi "phi" iA
+snippet ph "phi" iA
 \phi $0
 endsnippet
 context "math()"
@@ -979,7 +978,7 @@ snippet Upslon "Upsilon" iA
 \Upsilon $0
 endsnippet
 context "math()"
-snippet Phi "Phi" iA
+snippet Ph "Phi" iA
 \Phi $0
 endsnippet
 context "math()"

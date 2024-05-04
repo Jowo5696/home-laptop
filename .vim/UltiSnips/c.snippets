@@ -5,23 +5,39 @@ snippet { "bracket" iA
 $0
 endsnippet
 
-snippet for "for loop" iA
+snippet ffor "for loop" iA
 for ($1) {
 	$2
 }
 $0
 endsnippet
 
-snippet while "while loop" iA
+snippet fwhile "while loop" iA
 while ($1) {
 	$2
 }
 $0
 endsnippet
 
-snippet if "if" iA
+snippet fif "if" iA
 if ($1) {
 	$2
 }
 $0
 endsnippet
+
+snippet felif "else if" iA
+else if ($1) {
+	$2
+}
+$0
+endsnippet
+
+
+snippet felse "else" iA
+else {
+	$1
+}
+$0
+endsnippet
+
