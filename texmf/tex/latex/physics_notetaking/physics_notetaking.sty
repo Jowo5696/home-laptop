@@ -12,6 +12,7 @@
 \usepackage{tabularx}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{import} % can import files from other directories
 \usepackage{longtable}
 \usepackage{pgfplots}
 \usepackage{gnuplottex}
@@ -19,6 +20,8 @@
 
 \usepackage{amsmath,amsfonts,amssymb}
 \usepackage{dsfont}
+\usepackage{cancel}
+\usepackage{bm} % bold math font (if error is produced use \bm{{}})
 \usepackage{mathtools}
 \usepackage[ISO]{diffcoeff}
 \usepackage[locale=DE]{siunitx}
@@ -29,6 +32,7 @@
 \usepackage{bigints}
 \usepackage[frak=esstix]{mathalpha}
 \usepackage{siunitx}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 
 \usepackage{babel}
 \usepackage{hyphsubst}
@@ -41,3 +45,30 @@
 
 \usetikzlibrary{arrows}
 \pgfplotsset{compat=1.15}
+
+%%%%% styling
+
+\definecolor{codegreen}{rgb}{0, 0.6, 0}
+\definecolor{codegray}{rgb}{0.5, 0.5, 0.5}
+\definecolor{codepurple}{rgb}{0.58, 0, 0.82}
+\definecolor{backcolor}{rgb}{0.95, 0.95, 0.92}
+
+\lstdefinestyle{mystyle}{
+        backgroundcolor=\color{backcolour},
+        commentstyle=\color{codegreen},
+        keywordstyle=\color{codepurple},
+        numberstyle=\tiny\color{codegray},
+        stringstyle=\color{orange},
+        basicstyle=\footnotesize\ttfamily\color{black},
+        identifierstyle=\color{darkgray},
+        breakatwhitespace=false,
+        breaklines=true,
+        captionpos=b,
+        keepspaces=true,
+        numbers=left,
+        numbersep=5pt,
+        showspaces=false,
+        showstringspaces=false,
+        showtabs=false,
+        tabsize=2
+}
