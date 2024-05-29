@@ -25,7 +25,7 @@ set $menu wofi -S run -s /home/jonas/.config/wofi/style.css -c /home/jonas/.conf
 #output eDP-1 bg #458000 solid_color
 #output eDP-1 bg #450080 solid_color
 #output eDP-1 bg /home/jonas/.config/sway/bckgrnd/Energy-1.png fit
-output eDP-1 bg /home/jonas/.config/sway/bckgrnd/eap-1.png fit
+output eDP-1 bg /home/jonas/.config/sway/background/background_crop-1.png fit
 #output eDP-1 bg #92819e solid_color
 #output eDP-1 bg #6e6375 solid_color
 #output eDP-1 bg pacman -Qte
@@ -164,23 +164,23 @@ mode "resize" {
 #	$5 #ffe8f4
 #}
 
-set {
+#set {
 # brown, pink, light, teal, light teal
 #	$1 #b88c8c
 #       $2 #ddadad
 #	$3 #ffffff
 # 	$4 #9fb9bf
 #       $5 #aec8ce
-}
+#}
 
-set {
+#set {
 # dark (bg), darker (purple), light (fg), cream, green
 #        $1 #00475c
 #        $2 #450080
 #        $3 #ededde
 #        $4 #e5e1d2
 #        $5 #458000
-}
+#}
 
 set {
 # gruvbox: 1bg, 2red, 3fg, 4gray, 5orange, 6blue
@@ -192,7 +192,9 @@ set {
         $6 #458588
 }
 
-gaps inner 15
+# smart_gaps on # sets gaps 0 if only one window is present
+# former value 15
+gaps inner 0
 default_border pixel 0
 default_floating_border pixel 0
 # border background text indicator child_border
