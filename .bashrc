@@ -9,7 +9,10 @@ alias btw='neofetch'
 alias btw-s='neofetch --ascii_distro arch_small --disable Host --disable resolution --disable cpu --disable gpu --disable memory --disable uptime'
 alias bckp='sudo /home/jonas/sh/bckp.sh'
 alias menu='/home/jonas/sh/menu.sh'
-alias todo='/home/jonas/.sh/todo.sh'
+#alias todo='/home/jonas/.sh/todo.sh'
+
+# alias as script for todo
+alias todo='vim ~/.config/sway/background/background.tex; cd ~/.config/sway/background; latex ~/.config/sway/background/background.tex; pdflatex ~/.config/sway/background/background.tex; pdfcrop --margin "0 0 -1 -1" background.pdf background_crop.pdf; pdftoppm -png background_crop.pdf -o background_crop; echo "Please reload sway :)"; cd'
 
 alias ls='ls --color=auto'
 alias ll='ls -lh'
