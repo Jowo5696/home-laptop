@@ -24,6 +24,8 @@ alias ex='vim ~/studium/physik_111-511/physik_311/notes_physik_311.tex'
 alias mathe='vim ~/studium/math_141-341/math_341/notes_math_341.tex'
 alias theo='vim ~/studium/physik_221-521/physik_321/notes_physik_321.tex'
 
+alias blue-ray='cd'
+
 PS1='┌ (\u @ \h) - $PWD - \$ \n└── '
 #PS1='\e[3m \e[1m (\u @ \h) - $PWD - \$ \n -> '
 PS2='=> '
