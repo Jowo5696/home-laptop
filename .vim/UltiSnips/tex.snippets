@@ -284,8 +284,6 @@ snippet nb "nable" iA
 \nabla $0
 endsnippet
 
-
-
 context "math()"
 snippet lg "left angle" iA
 \left\langle $0
@@ -635,10 +633,10 @@ snippet 'mds([0-9])' "mathds" riA
 \mathds{`!p snip.rv=match.group(1)`}$0
 endsnippet
 
-context "nmath()"
-snippet ' ([A-Za-z]) ' "math" riA
- $`!p snip.rv=match.group(1)`$ $0
-endsnippet
+#context "nmath()"
+#snippet ' ([A-Za-z]) ' "math" riA
+# $`!p snip.rv=match.group(1)`$ $0
+#endsnippet
 
 context "nmath()"
 snippet ' m([A-Za-z]) ' "mathbb" riA
@@ -773,6 +771,7 @@ snippet newdocument "creates template for new document" A
 \newcommand{\td}{\,\text{d}}
 \newcommand{\RN}[1]{\uppercase\expandafter{\romannumeral#1}}
 \newcommand{\zz}{\mathrm{Z\kern-.3em\raise-0.5ex\hbox{Z} }}
+\newcommand{\id}{1\kern-.258em1}
 
 \newcommand\inlineeqno{\stepcounter{equation}\ {(\theequation)}}
 \newcommand\inlineeqnoa{(\theequation.\text{a})}
@@ -925,7 +924,7 @@ snippet uplon "upsilon" iA
 \upsilon $0
 endsnippet
 context "math()"
-snippet ph "phi" iA
+snippet hi "phi" iA
 \phi $0
 endsnippet
 context "math()"
