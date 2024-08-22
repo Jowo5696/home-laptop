@@ -40,3 +40,5 @@ export EDITOR=vim
 export XDG_CURRENT_DESKTOP=Sway
 export PATH=/home/jonas/.local/bin:$PATH
 #export TEXMFCNF='/home/jonas/.config:/usr/share/texmf-dist/web2c'
+
+fortune
