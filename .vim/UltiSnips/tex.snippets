@@ -16,6 +16,16 @@ endglobal
 ### environments ###
 
 context "math()"
+snippet vu "vier und" i
+&&&& 
+endsnippet
+
+context "math()"
+snippet == "und gleich" iA
+&= 
+endsnippet
+
+context "math()"
 snippet hb "h bar" iA
 \hbar $0
 endsnippet
@@ -133,7 +143,7 @@ snippet ssec "subsection" A
 $0
 endsnippet
 
-snippet ttl "title" A
+snippet ttl "title" w
 \\\\\hfill\\\\\textbf{$1}\\\ $0
 endsnippet
 
@@ -799,34 +809,46 @@ snippet newdocument "creates template for new document" A
 
 %{{{ Titelseite
 
-\title{}
-\author{}
+\iffalse\begin{titlepage}
+	\title{}
+	\author[1]{\thanks}
+	\affil{}
+\end{titlepage}\fi
+
+\iffalse\title{}
+\author{}\fi
+
 \maketitle
 \pagenumbering{gobble}
 
 %}}}
 
-\newpage
+\clearpage
 
 %{{{ Inhaltsverzeichnis
 
+\fancyhead[R]{\leftmark}
+%\fancyhead[R]{\leftmark\\\\\rightmark}
 \fancyhead[L]{\thepage}
 \fancyfoot[C]{}
-\pagenumbering{arabic}
 
 \tableofcontents
 
 %}}}
 
-\newpage
+\clearpage
 
 %{{{
 
-\fancyhead[R]{\leftmark\\\\\rightmark}
+\pagenumbering{arabic}
+
+%\begin{multicols}{2}
 
 $0
 
 %}}}
+
+%\end{multicols}{2}
 
 \end{document}
 endsnippet
