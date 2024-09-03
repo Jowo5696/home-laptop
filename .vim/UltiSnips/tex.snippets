@@ -15,13 +15,22 @@ endglobal
 
 ### environments ###
 
+snippet figure "figure env" 
+\begin{figure}[$1]
+	\centering
+	\includegraphics[width=$2]{$3}
+	\caption{$4}$5
+\end{figure}$0
+endsnippet
+
+
 context "math()"
-snippet vu "vier und" i
+snippet vu "four and" i
 &&&& 
 endsnippet
 
 context "math()"
-snippet == "und gleich" iA
+snippet == "and equal" iA
 &= 
 endsnippet
 
@@ -190,7 +199,7 @@ snippet tg "tag, label, eqref" iA
 \tag{$1}\label{$2}$0 
 endsnippet
 
-snippet lbl "label" iA
+snippet lbl "label" A
 \label{$1}$0
 endsnippet
 
@@ -797,6 +806,11 @@ snippet newdocument "creates template for new document" A
 \renewcommand{\sfdefault}{phv}
 %\renewcommand*\contentsname{Contents}
 
+\iffalse\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}\fi % for multicols figures
+
+\begin{document}
 \pagestyle{fancy}
 
 \sloppy
