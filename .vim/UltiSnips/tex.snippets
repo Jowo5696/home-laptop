@@ -771,7 +771,7 @@ endsnippet
 snippet newdocument "creates template for new document" A
 %{{{ Formatierung
 
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,10pt]{article}
 
 \usepackage{physics_notetaking}
 
@@ -807,10 +807,9 @@ snippet newdocument "creates template for new document" A
 %\renewcommand*\contentsname{Contents}
 
 \iffalse\newenvironment{Figure}
-  {\par\medskip\noindent\minipage{\linewidth}}
-  {\endminipage\par\medskip}\fi % for multicols figures
+	{\par\medskip\noindent\minipage{\linewidth}}
+	{\endminipage\par\medskip}\fi % for multicols figures
 
-\begin{document}
 \pagestyle{fancy}
 
 \sloppy
@@ -857,12 +856,13 @@ snippet newdocument "creates template for new document" A
 \pagenumbering{arabic}
 
 %\begin{multicols}{2}
+%\sloppy
 
 $0
 
 %}}}
 
-%\end{multicols}{2}
+%\end{multicols}
 
 \end{document}
 endsnippet
