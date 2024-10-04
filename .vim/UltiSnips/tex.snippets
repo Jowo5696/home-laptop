@@ -23,15 +23,29 @@ snippet figure "figure env"
 \end{figure}$0
 endsnippet
 
+context "math()"
+snippet kt "ket" iA
+\ket{$1}$0
+endsnippet
+
+context "math()"
+snippet br "bra" iA
+\bra{$1}$0
+endsnippet
+
+context "math()"
+snippet bk "braket" iA
+\braket{$1}{$2}$0
+endsnippet
 
 context "math()"
 snippet vu "four and" i
-&&&& 
+ &&&& 
 endsnippet
 
 context "math()"
 snippet == "and equal" iA
-&= 
+ &= 
 endsnippet
 
 context "math()"
@@ -860,9 +874,16 @@ snippet newdocument "creates template for new document" A
 
 $0
 
-%}}}
 
 %\end{multicols}
+
+%\clearpage
+%\listoffigures
+%\listoftables
+%\bibliographystyle{plain}
+%\bibliography{refs}
+
+%}}}
 
 \end{document}
 endsnippet

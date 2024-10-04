@@ -65,6 +65,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 let g:gruvbox_italic=1
 
+Plug 'pbrisbin/vim-colors-off'
+
+Plug 'vyshane/cleanroom-vim-color' 
+
 Plug 'lervag/vimtex'
 let g:vimtex_quickfix_open_on_warning=0
 let g:vimtex_view_method='zathura'
@@ -92,10 +96,10 @@ filetype indent on
 syntax on
 
 set t_Co=256
-set bg=dark
+set bg=light
 hi Folded ctermbg=Blue
 let &t_ut=''
-autocmd vimenter * ++nested colorscheme gruvbox
+autocmd vimenter * ++nested colorscheme off
 
 "if empty(v:servername) && exists('*remote_startserver')
 "  call remote_startserver('VIM')

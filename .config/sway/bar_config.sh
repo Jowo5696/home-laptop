@@ -63,4 +63,4 @@ else
 fi
 )
 
-echo '>' 'it is GNU/Linux' '|' 'i use arch btw' '|' 'LNX' $linux_formatted '|' 'CON' $connection '|' 'BAT' $battery'%' $battery_status $when_charge '|' 'VOL' $volume_state '|' 'BRT' $brightness'('$brightness_p'%'')' '|' $date_formatted':'$date_formattedm '<'
+echo '>' 'einfach machen' '|' 'it is GNU/Linux' '|' 'i use arch btw' '|' 'LNX' $linux_formatted '|' 'CON' $connection '|' 'BAT' $battery'%' $battery_status $when_charge '|' 'VOL' $volume_state '|' 'BRT' $brightness'('$brightness_p'%'')' '|' $date_formatted':'$date_formattedm '<'

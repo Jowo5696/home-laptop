@@ -212,7 +212,8 @@ bar {
 	status_command while ./.config/sway/bar_config.sh; do sleep 1; done
 	font Source Code Pro italic
 	colors {
-		background $3
+		#background $3
+                background #ffffff
 		statusline $1
                 focused_workspace $6 $6 $3
                 inactive_workspace $5 $5 $3
